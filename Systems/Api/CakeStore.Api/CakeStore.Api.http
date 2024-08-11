@@ -1,0 +1,6 @@
+@CakeStore.Api_HostAddress = http://localhost:5001
+
+GET {{CakeStore.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
