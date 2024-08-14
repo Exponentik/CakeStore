@@ -13,6 +13,10 @@
 
   <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.17" />
     <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
@@ -24,8 +28,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\CakeStore.Context.Migrations\CakeStore.Context.Migrations.MSSQL\CakeStore.Context.Migrations.MSSQL.csproj" />
+    <ProjectReference Include="..\..\..\Data\CakeStore.Context.Migrations\CakeStore.Context.Migrations.MySql\CakeStore.Context.Migrations.MySql.csproj" />
+    <ProjectReference Include="..\..\..\Data\CakeStore.Context.Migrations\CakeStore.Context.Migrations.PgSql\CakeStore.Context.Migrations.PgSql.csproj" />
+    <ProjectReference Include="..\..\..\Data\CakeStore.Context.Seeder\CakeStore.Context.Seeder.csproj" />
+    <ProjectReference Include="..\..\..\Data\CakeStore.Context\CakeStore.Context.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.Logger\CakeStore.Services.Logger.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.Settings\CakeStore.Services.Settings.csproj" />
+    <ProjectReference Include="..\..\..\Shared\CakeStore.Common\CakeStore.Common.csproj" />
   </ItemGroup>
 
 </Project>
