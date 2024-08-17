@@ -4,33 +4,34 @@ using CakeStore.Context.Entities;
 
 public class DemoHelper
 {
-    public IEnumerable<Book> GetBooks = new List<Book>
+    public IEnumerable<Product> GetProducts = new List<Product>
     {
-        new Book()
+        new Product()
         {
             Uid = Guid.NewGuid(),
-            Title = "Harry Potter and the Philosopher's Stone",
-            Author = new Author()
-            {
-                Uid = Guid.NewGuid(),
-                Name = "Joanne",  
-                Detail = new AuthorDetail()
-                {
-                    Country = "England",
-                    Family = "Rowling",
-                }
-            },
+            Name = "Napoleon",
+            Description = "Krutoi tort",
+
             Categories = new List<Category>()
             {
                 new Category()
                 {
-                    Title = "Child books",
+                    Title = "S kremom",
                 },
                 new Category()
                 {
-                    Title = "Fantasy",
+                    Title = "Bomba",
                 }
-            }
-        },
+            },
+            User = new User()
+            {
+                Uid = Guid.NewGuid(),
+                Name = "Petya",
+                Email = "",
+                Password = "",
+                UserName = ""
+
+        }
+    }
     };
-}
+        }

@@ -43,6 +43,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Context.Migration
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Context.Seeder", "Data\CakeStore.Context.Seeder\CakeStore.Context.Seeder.csproj", "{56462D4C-C793-4A56-89B1-1141ED14C1C9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Api.Settings", "Systems\Api\CakeStore.Api.Settings\CakeStore.Api.Settings.csproj", "{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeStore.Services.Products", "Services\CakeStore.Services.Products\CakeStore.Services.Products.csproj", "{8066C5A4-36EC-495C-99BC-0473BAF18250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{56462D4C-C793-4A56-89B1-1141ED14C1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56462D4C-C793-4A56-89B1-1141ED14C1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56462D4C-C793-4A56-89B1-1141ED14C1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +125,8 @@ Global
 		{8EFA3C7A-99E5-4BBB-969D-E793F73BCEF2} = {2429DE87-55E7-4BD8-A669-B0AFD6FFB589}
 		{0FB7BBB9-739B-4D75-AECB-0D216D04B55D} = {2429DE87-55E7-4BD8-A669-B0AFD6FFB589}
 		{56462D4C-C793-4A56-89B1-1141ED14C1C9} = {DC25F8BB-D3C0-48D3-AC51-634707C60117}
+		{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8} = {0C4F45AE-A6FB-4A20-B4B6-C917CD24B49E}
+		{8066C5A4-36EC-495C-99BC-0473BAF18250} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDB49E4D-BB53-4314-BBEA-067ED7FE5D2E}

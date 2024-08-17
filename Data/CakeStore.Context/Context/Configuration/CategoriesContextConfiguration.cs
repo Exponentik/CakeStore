@@ -10,6 +10,6 @@ public static class CategoriesContextConfiguration
         modelBuilder.Entity<Category>().ToTable("categories");
         modelBuilder.Entity<Category>().Property(x => x.Title).IsRequired();
         modelBuilder.Entity<Category>().Property(x => x.Title).HasMaxLength(100);
-        modelBuilder.Entity<Category>().HasMany(x => x.Books).WithMany(x => x.Categories).UsingEntity(t => t.ToTable("books_categories"));
+        modelBuilder.Entity<Category>().HasMany(x => x.Products).WithMany(x => x.Categories).UsingEntity(t => t.ToTable("products_categories"));
     }
 }
