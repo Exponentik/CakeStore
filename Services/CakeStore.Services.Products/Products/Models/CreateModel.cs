@@ -12,6 +12,8 @@ public class CreateModel
     public Guid UserId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
+
+    public ICollection<string> Category { get; set; }
 }
 
 public class CreateModelProfile : Profile

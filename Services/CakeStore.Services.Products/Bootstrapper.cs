@@ -1,4 +1,4 @@
-﻿using CakeStore.Services.Products.Products;
+﻿using CakeStore.Services.Products;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CakeStore.Services.Products;

@@ -21,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A9A58036-FF8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Api", "Systems\Api\CakeStore.Api\CakeStore.Api.csproj", "{DB271B0E-E556-4831-8711-00501FF3E47E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Worker", "Systems\Worker\CakeStore.Worker\CakeStore.Worker.csproj", "{0765CDD9-9D39-489E-A46C-F2097AD9F613}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Common", "Shared\CakeStore.Common\CakeStore.Common.csproj", "{9853DA7B-E7FD-4668-8BDB-6DF50F12F172}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.Settings", "Services\CakeStore.Services.Settings\CakeStore.Services.Settings.csproj", "{2553612B-4206-423D-A2D8-85817C033AD9}"
@@ -45,7 +43,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Context.Seeder", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Api.Settings", "Systems\Api\CakeStore.Api.Settings\CakeStore.Api.Settings.csproj", "{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeStore.Services.Products", "Services\CakeStore.Services.Products\CakeStore.Services.Products.csproj", "{8066C5A4-36EC-495C-99BC-0473BAF18250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.Products", "Services\CakeStore.Services.Products\CakeStore.Services.Products.csproj", "{8066C5A4-36EC-495C-99BC-0473BAF18250}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docker", "_docker", "{AFFDD217-086D-4F98-8E8A-6F2D5386F52F}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+		env.api = env.api
+		env.worker = env.worker
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.RabbitMq", "Services\CakeStore.Services.RabbitMq\CakeStore.Services.RabbitMq.csproj", "{45C21542-3E90-4429-8BE4-3575DA5420D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.Actions", "Services\CakeStore.Services.Actions\CakeStore.Services.Actions.csproj", "{8477D02E-58D1-4651-BE16-BBCB757DB8A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Worker", "Systems\Worker\CakeStore.Worker\CakeStore.Worker.csproj", "{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +69,6 @@ Global
 		{DB271B0E-E556-4831-8711-00501FF3E47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB271B0E-E556-4831-8711-00501FF3E47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB271B0E-E556-4831-8711-00501FF3E47E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0765CDD9-9D39-489E-A46C-F2097AD9F613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0765CDD9-9D39-489E-A46C-F2097AD9F613}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0765CDD9-9D39-489E-A46C-F2097AD9F613}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0765CDD9-9D39-489E-A46C-F2097AD9F613}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9853DA7B-E7FD-4668-8BDB-6DF50F12F172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9853DA7B-E7FD-4668-8BDB-6DF50F12F172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9853DA7B-E7FD-4668-8BDB-6DF50F12F172}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -105,6 +113,18 @@ Global
 		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8066C5A4-36EC-495C-99BC-0473BAF18250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C21542-3E90-4429-8BE4-3575DA5420D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C21542-3E90-4429-8BE4-3575DA5420D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C21542-3E90-4429-8BE4-3575DA5420D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C21542-3E90-4429-8BE4-3575DA5420D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8477D02E-58D1-4651-BE16-BBCB757DB8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8477D02E-58D1-4651-BE16-BBCB757DB8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8477D02E-58D1-4651-BE16-BBCB757DB8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8477D02E-58D1-4651-BE16-BBCB757DB8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,7 +134,6 @@ Global
 		{33B7EF1A-53DA-4E27-ADBD-5ED436C5DE50} = {F3A58766-8824-4AAD-92B7-6CE40569C108}
 		{A9A58036-FF8C-4392-8F87-0E46AEE2384C} = {F3A58766-8824-4AAD-92B7-6CE40569C108}
 		{DB271B0E-E556-4831-8711-00501FF3E47E} = {0C4F45AE-A6FB-4A20-B4B6-C917CD24B49E}
-		{0765CDD9-9D39-489E-A46C-F2097AD9F613} = {33B7EF1A-53DA-4E27-ADBD-5ED436C5DE50}
 		{9853DA7B-E7FD-4668-8BDB-6DF50F12F172} = {1A7CEEF2-0748-4B44-910F-C33E57780AA1}
 		{2553612B-4206-423D-A2D8-85817C033AD9} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
 		{29D5259B-2BC8-4F1E-8DC1-C378FFD0F4D8} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
@@ -127,6 +146,9 @@ Global
 		{56462D4C-C793-4A56-89B1-1141ED14C1C9} = {DC25F8BB-D3C0-48D3-AC51-634707C60117}
 		{73728FD4-8A46-4DEB-A5FC-DD5DBAFBF7D8} = {0C4F45AE-A6FB-4A20-B4B6-C917CD24B49E}
 		{8066C5A4-36EC-495C-99BC-0473BAF18250} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
+		{45C21542-3E90-4429-8BE4-3575DA5420D1} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
+		{8477D02E-58D1-4651-BE16-BBCB757DB8A1} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
+		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A} = {33B7EF1A-53DA-4E27-ADBD-5ED436C5DE50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDB49E4D-BB53-4314-BBEA-067ED7FE5D2E}

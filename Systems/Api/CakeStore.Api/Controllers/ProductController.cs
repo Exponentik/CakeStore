@@ -4,7 +4,7 @@ using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using CakeStore.Services.Products;
 using CakeStore.Services.Logger;
-using CakeStore.Services.Products.Products;
+using CakeStore.Services.Products;
 
 [ApiController]
 [ApiVersion("1.0")]

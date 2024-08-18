@@ -6,6 +6,8 @@ using CakeStore.Services.Settings;
 using CakeStore.Api.Settings;
 using CakeStore.Context.Seeder;
 using CakeStore.Services.Products;
+using CakeStore.Services.RabbitMq;
+using CakeStore.Services.Actions;
 
 public static class Bootstrapper
 {
@@ -18,6 +20,8 @@ public static class Bootstrapper
                 .AddDbSeeder()
                 .AddApiSpecialSettings()
                 .AddProductService()
+                .AddRabbitMq()
+                .AddActions()
                 ;
 
         return service;

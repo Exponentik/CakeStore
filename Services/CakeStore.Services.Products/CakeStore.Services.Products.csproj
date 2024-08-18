@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.7.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\CakeStore.Context.Entities\CakeStore.Context.Entities.csproj" />
     <ProjectReference Include="..\..\Data\CakeStore.Context\CakeStore.Context.csproj" />
+    <ProjectReference Include="..\CakeStore.Services.Actions\CakeStore.Services.Actions.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,0 @@
-@CakeStore.Worker_HostAddress = http://localhost:5120
-
-GET {{CakeStore.Worker_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
