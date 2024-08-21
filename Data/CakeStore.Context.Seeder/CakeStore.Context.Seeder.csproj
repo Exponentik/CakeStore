@@ -14,6 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Services\CakeStore.Services.UserAccount\CakeStore.Services.UserAccount.csproj" />
       <ProjectReference Include="..\..\Shared\CakeStore.Common\CakeStore.Common.csproj" />
       <ProjectReference Include="..\CakeStore.Context.Entities\CakeStore.Context.Entities.csproj" />
       <ProjectReference Include="..\CakeStore.Context\CakeStore.Context.csproj" />

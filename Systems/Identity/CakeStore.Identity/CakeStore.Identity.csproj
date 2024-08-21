@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="key\**" />
+    <Content Remove="key\**" />
+    <EmbeddedResource Remove="key\**" />
+    <None Remove="key\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Duende.IdentityServer" Version="7.0.6" />
+	<PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.3.6" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
+	<PackageReference Include="Serilog.Expressions" Version="4.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+	<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\CakeStore.Context\CakeStore.Context.csproj" />
+    <ProjectReference Include="..\..\..\Services\CakeStore.Services.Settings\CakeStore.Services.Settings.csproj" />
+    <ProjectReference Include="..\..\..\Shared\CakeStore.Common\CakeStore.Common.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,22 +1,21 @@
 ﻿using CakeStore.Context.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CakeStore.Context.Context.Configuration;
+
+namespace CakeStore.Context;
 
 public static class UsersContestConfiguration
 {
     public static void ConfigureUsers(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>().ToTable("users");
-        modelBuilder.Entity<User>().Property(x => x.Name).IsRequired();
-        modelBuilder.Entity<User>().Property(x => x.Password).IsRequired();
-        modelBuilder.Entity<User>().Property(x => x.UserName).IsRequired();
-        modelBuilder.Entity<User>().Property(x => x.Email).IsRequired();
-        modelBuilder.Entity<User>().HasMany(x => x.Orders).WithOne(x => x.User);
+        modelBuilder.Entity<IdentityRole<Guid>>().ToTable("user_roles");
+        modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("user_tokens");
+        modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("user_role_owners");
+        modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("user_role_claims");
+        modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("user_logins");
+        modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("user_claims");
+        //modelBuilder.Entity<User>().HasMany(x => x.Orders).WithOne(x => x.User);
     }
 }

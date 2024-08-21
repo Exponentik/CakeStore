@@ -32,6 +32,13 @@ services:
     env_file:
       - env.api
 
+  cakestore_identity:
+    ports:
+      - "10001:8080"
+    networks:
+      - shared_cakestore_net
+    env_file:
+      - env.identity
   cakestore_worker_1:
     networks:
       - shared_cakestore_net

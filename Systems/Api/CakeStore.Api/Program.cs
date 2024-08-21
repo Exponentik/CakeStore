@@ -8,6 +8,7 @@ using CakeStore.Context.Seeder;
 var mainSettings = Settings.Load<MainSettings>("Main");
 var logSettings = Settings.Load<LogSettings>("Log");
 var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
+var identitySettings = Settings.Load<IdentitySettings>("Identity");
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,7 @@ b.AddAppValidator();
 
 b.AddAppHealthChecks();
 
-b.RegisterServices(builder.Configuration);
+
 
 b.AddAppVersioning();
 
@@ -34,9 +35,11 @@ b.AddAppCors ();
 
 b.AddAppControllerAndViews();
 
-b.AddAppSwagger(mainSettings, swaggerSettings);
+b.AddAppSwagger(mainSettings, swaggerSettings,identitySettings);
 
+b.AddAppAuth(identitySettings);
 
+b.RegisterServices(builder.Configuration);
 
 var app = builder.Build();
 
@@ -47,6 +50,8 @@ app.UseAppCors ();
 app.UseAppControllerAndViews();
 
 app.UseAppSwagger();
+
+app.UseAppAuth();
 
 DbInitializer.Execute(app.Services);
 DbSeeder.Execute(app.Services);

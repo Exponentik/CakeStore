@@ -1,12 +1,8 @@
 ﻿using CakeStore.Context.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CakeStore.Context.Context.Configuration;
+
+namespace CakeStore.Context;
 
 public static class NotificationsContestConfiguration
 {
@@ -16,7 +12,7 @@ public static class NotificationsContestConfiguration
         modelBuilder.Entity<Notification>().Property(x => x.Message).IsRequired();
         modelBuilder.Entity<Notification>().Property(x => x.Title).HasMaxLength(1000);
         modelBuilder.Entity<Notification>().Property(x => x.DateCreated).IsRequired();
-        modelBuilder.Entity<Notification>().HasOne(x => x.User).WithMany(x => x.Notifications);
+        //modelBuilder.Entity<Notification>().HasOne(x => x.User).WithMany(x => x.Notifications);
 
     }
 }

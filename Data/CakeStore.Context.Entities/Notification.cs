@@ -14,7 +14,7 @@ public class Notification : BaseEntity
 
     public bool IsRead { get; set; } = false;
 
-    public int UserId { get; set; }
+    //public int UserId { get; set; }
 
-    public virtual User User { get; set; }  // Связь с таблицей пользователей
+    //public virtual User User { get; set; }  // Связь с таблицей пользователей
 }

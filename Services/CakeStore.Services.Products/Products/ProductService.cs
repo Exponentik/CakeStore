@@ -36,12 +36,12 @@ public class ProductService : IProductService
 
         var products = await context.Products
 
-            .Include(x => x.User).Include(x=>x.Categories).ToListAsync();
+            /*.Include(x => x.User)*/.Include(x=>x.Categories).ToListAsync();
 
         var result = products.Select(x => new ProductModel()
         {
             Id = x.Uid,
-            UserId = x.User.Uid,
+            //UserId = x.User.Id,
             Name = x.Name,
             Description = x.Description,
             Categories = x.Categories?.Select(s=>s.Title)
@@ -56,14 +56,14 @@ public class ProductService : IProductService
             //.Include(x => x.Reviews)
             .Include(x => x.Categories)
             //.Include(x => x.Images)
-            .Include(x => x.User)
+            //.Include(x => x.User)
             .FirstOrDefaultAsync(x => x.Uid == id);
 
 
         var result = new ProductModel()
         {
             Id = product.Uid,
-            UserId = product.User.Uid,
+            //UserId = product.User.Id,
             Name = product.Name,
             Description = product.Description,
             Categories = product.Categories.Select(s => s.Title)
@@ -78,7 +78,7 @@ public class ProductService : IProductService
         
         var product = new Product()
         {
-            User = context.Users.FirstOrDefault(x => x.Uid == model.UserId),
+            //User = context.Users.FirstOrDefault(x => x.Id == model.UserId),
             Name = model.Name,
             Description = model.Description,
         };
@@ -97,7 +97,7 @@ public class ProductService : IProductService
         var result = new ProductModel()
         {
             Id = product.Uid,
-            UserId = product.User.Uid,
+            //UserId = product.User.Id,
             Name = product.Name,
             Description = product.Description,
             Categories = product.Categories?.Select(s => s.Title)

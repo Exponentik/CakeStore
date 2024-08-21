@@ -45,10 +45,10 @@ public class ProductModelProfile : Profile
 
             
 
-            var product = db.Products.Include(x => x.User).FirstOrDefault(x => x.Id == source.Id);
+            var product = db.Products./*Include(x => x.User).*/FirstOrDefault(x => x.Id == source.Id);
 
             destination.Id = product.Uid;
-            destination.UserId = product.User.Uid;
+            //destination.UserId = product.User.Id;
             destination.Categories = product.Categories?.Select(x => x.Title);
         }
     }

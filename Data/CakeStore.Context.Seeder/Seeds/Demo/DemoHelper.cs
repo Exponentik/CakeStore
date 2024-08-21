@@ -6,32 +6,32 @@ public class DemoHelper
 {
     public IEnumerable<Product> GetProducts = new List<Product>
     {
-        new Product()
-        {
-            Uid = Guid.NewGuid(),
-            Name = "Napoleon",
-            Description = "Krutoi tort",
+    //    new Product()
+    //    {
+    //    //    Uid = Guid.NewGuid(),
+    //    //    Name = "Napoleon",
+    //    //    Description = "Krutoi tort",
 
-            Categories = new List<Category>()
-            {
-                new Category()
-                {
-                    Title = "S kremom",
-                },
-                new Category()
-                {
-                    Title = "Bomba",
-                }
-            },
-            User = new User()
-            {
-                Uid = Guid.NewGuid(),
-                Name = "Petya",
-                Email = "",
-                Password = "",
-                UserName = ""
+    //    //    Categories = new List<Category>()
+    //    //    {
+    //    //        new Category()
+    //    //        {
+    //    //            Title = "S kremom",
+    //    //        },
+    //    //        new Category()
+    //    //        {
+    //    //            Title = "Bomba",
+    //    //        }
+    //    //    },
+    //    //    User = new User()
+    //    //    {
+    //    //        Id = Guid.NewGuid(),
+    //    //        FullName = "Petya",
+    //    //        Email = "",
+    //    //        PasswordHash = "",
+    //    //        UserName = ""
 
-        }
-    }
+    //    //}
+    //}
     };
         }

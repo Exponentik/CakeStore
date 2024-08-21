@@ -2,7 +2,7 @@
 using CakeStore.Context.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CakeStore.Context.Context.Configuration;
+namespace CakeStore.Context;
 
 public static class LikesContextConfiguration
 {
@@ -11,7 +11,7 @@ public static class LikesContextConfiguration
         modelBuilder.Entity<Like>().ToTable("likes");
         modelBuilder.Entity<Like>().Property(x=>x.LikeDate).IsRequired();
         modelBuilder.Entity<Like>().HasOne(x => x.Product).WithMany(x => x.Likes);
-        modelBuilder.Entity<Like>().HasOne(x => x.User).WithMany(x => x.Likes);
+        //modelBuilder.Entity<Like>().HasOne(x => x.User).WithMany(x => x.Likes);
     }
     
 }

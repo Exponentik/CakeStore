@@ -1,10 +1,12 @@
 ﻿namespace CakeStore.Context;
 
-using CakeStore.Context.Context.Configuration;
 using CakeStore.Context.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using CakeStore.Context.Context.Configuration;
 
-public class MainDbContext : DbContext
+public class MainDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     public DbSet<Product> Products { get; set; }
     public DbSet<Order> Orders { get; set; }

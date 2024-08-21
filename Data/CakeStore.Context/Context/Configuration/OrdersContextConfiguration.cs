@@ -1,7 +1,7 @@
 ﻿using CakeStore.Context.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CakeStore.Context.Context.Configuration;
+namespace CakeStore.Context;
 
 public static class OrdersContextConfiguration
 {

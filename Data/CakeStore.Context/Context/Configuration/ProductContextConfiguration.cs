@@ -2,7 +2,7 @@
 using CakeStore.Context.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CakeStore.Context.Context.Configuration;
+namespace CakeStore.Context;
 
 public static class ProductContextConfiguration
 {
@@ -14,6 +14,6 @@ public static class ProductContextConfiguration
         modelBuilder.Entity<Product>().HasMany(x => x.Categories).WithMany(x => x.Products).UsingEntity(t => t.ToTable("products_categories"));
         modelBuilder.Entity<Product>().HasMany(x => x.Likes).WithOne(x => x.Product);
         modelBuilder.Entity<Product>().HasMany(x => x.Reviews).WithOne(x => x.Product);
-        modelBuilder.Entity<Product>().HasOne(x => x.User).WithMany(x => x.Products);
+        //modelBuilder.Entity<Product>().HasOne(x => x.User).WithMany(x => x.Products);
     }
 }

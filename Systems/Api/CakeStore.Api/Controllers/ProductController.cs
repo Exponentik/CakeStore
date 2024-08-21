@@ -2,10 +2,12 @@
 
 using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using CakeStore.Services.Products;
 using CakeStore.Services.Logger;
-using CakeStore.Services.Products;
+using CakeStore.Common.Security;
 
+[Authorize]
 [ApiController]
 [ApiVersion("1.0")]
 [ApiExplorerSettings(GroupName = "Product")]
@@ -20,7 +22,7 @@ public class ProductController : ControllerBase
         this.logger = logger;
         this.bookService = bookService;
     }
-
+    [Authorize(AppScopes.BooksRead)]
     [HttpGet("")]
     public async Task<IEnumerable<ProductModel>> GetAll()
     {
@@ -28,7 +30,7 @@ public class ProductController : ControllerBase
 
         return result;
     }
-
+    [Authorize(AppScopes.BooksRead)]
     [HttpGet("{id:Guid}")]
     public async Task<IActionResult> Get([FromRoute] Guid id)
     {
@@ -39,7 +41,7 @@ public class ProductController : ControllerBase
 
         return Ok(result);
     }
-
+    [Authorize(AppScopes.BooksWrite)]
     [HttpPost("")]
     public async Task<ProductModel> Create(CreateModel request)
     {
@@ -47,13 +49,13 @@ public class ProductController : ControllerBase
 
         return result;
     }
-
+    [Authorize(AppScopes.BooksWrite)]
     [HttpPut("{id:Guid}")]
     public async Task Update([FromRoute] Guid id, UpdateModel request)
     {
         await bookService.Update(id, request);
     }
-
+    [Authorize(AppScopes.BooksWrite)]
     [HttpDelete("{id:Guid}")]
     public async Task Delete([FromRoute] Guid id)
     {

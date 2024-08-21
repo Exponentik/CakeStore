@@ -1,13 +1,8 @@
 ﻿using CakeStore.Context.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CakeStore.Context.Context.Configuration;
 
+namespace CakeStore.Context;
 public static class OrderDetailsContextConfiguration
 {
     public static void ConfigureOrderDetails(this ModelBuilder modelBuilder)

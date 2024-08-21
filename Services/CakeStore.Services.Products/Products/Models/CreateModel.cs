@@ -21,7 +21,7 @@ public class CreateModelProfile : Profile
     public CreateModelProfile()
     {
         CreateMap<CreateModel, Product>()
-            .ForMember(dest => dest.User.Id, opt => opt.Ignore())
+            //.ForMember(dest => dest.User.Id, opt => opt.Ignore())
             .AfterMap<CreateModelActions>();
     }
 
@@ -38,9 +38,9 @@ public class CreateModelProfile : Profile
         {
             using var db = contextFactory.CreateDbContext();
 
-            var author = db.Users.FirstOrDefault(x => x.Uid == source.UserId);
+            var author = db.Users.FirstOrDefault(x => x.Id == source.UserId);
 
-            destination.User.Id = author.Id;
+            //destination.User.Id = author.Id;
         }
     }
 }
@@ -56,7 +56,7 @@ public class CreateBookModelValidator : AbstractValidator<CreateModel>
             .Must((id) =>
             {
                 using var context = contextFactory.CreateDbContext();
-                var found = context.Users.Any(a => a.Uid == id);
+                var found = context.Users.Any(a => a.Id == id);
                 return found;
             }).WithMessage("Author not found");
 

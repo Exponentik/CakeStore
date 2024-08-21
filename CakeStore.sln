@@ -50,6 +50,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docker", "_docker", "{AFFD
 		docker-compose.override.yml = docker-compose.override.yml
 		docker-compose.yml = docker-compose.yml
 		env.api = env.api
+		env.identity = env.identity
 		env.worker = env.worker
 	EndProjectSection
 EndProject
@@ -58,6 +59,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.Actions", "Services\CakeStore.Services.Actions\CakeStore.Services.Actions.csproj", "{8477D02E-58D1-4651-BE16-BBCB757DB8A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Worker", "Systems\Worker\CakeStore.Worker\CakeStore.Worker.csproj", "{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{EE7A4AB8-2BFA-4881-B3EA-43AE6BD10AED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Identity", "Systems\Identity\CakeStore.Identity\CakeStore.Identity.csproj", "{FE6E4048-3C31-433E-8654-BA53E61B222B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.UserAccount", "Services\CakeStore.Services.UserAccount\CakeStore.Services.UserAccount.csproj", "{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +132,14 @@ Global
 		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6E4048-3C31-433E-8654-BA53E61B222B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6E4048-3C31-433E-8654-BA53E61B222B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6E4048-3C31-433E-8654-BA53E61B222B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6E4048-3C31-433E-8654-BA53E61B222B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,6 +164,9 @@ Global
 		{45C21542-3E90-4429-8BE4-3575DA5420D1} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
 		{8477D02E-58D1-4651-BE16-BBCB757DB8A1} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
 		{94C6CB68-FE3D-407C-B5B7-C5DAB085F67A} = {33B7EF1A-53DA-4E27-ADBD-5ED436C5DE50}
+		{EE7A4AB8-2BFA-4881-B3EA-43AE6BD10AED} = {F3A58766-8824-4AAD-92B7-6CE40569C108}
+		{FE6E4048-3C31-433E-8654-BA53E61B222B} = {EE7A4AB8-2BFA-4881-B3EA-43AE6BD10AED}
+		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDB49E4D-BB53-4314-BBEA-067ED7FE5D2E}
