@@ -34,7 +34,7 @@ services:
 
   cakestore_identity:
     ports:
-      - "10001:8080"
+      - "5027:8080"
     networks:
       - shared_cakestore_net
     env_file:
