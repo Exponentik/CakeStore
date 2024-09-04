@@ -38,9 +38,11 @@
     <ProjectReference Include="..\..\..\Data\CakeStore.Context.Seeder\CakeStore.Context.Seeder.csproj" />
     <ProjectReference Include="..\..\..\Data\CakeStore.Context\CakeStore.Context.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.Actions\CakeStore.Services.Actions.csproj" />
+    <ProjectReference Include="..\..\..\Services\CakeStore.Services.Categories\CakeStore.Services.Categories.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.Logger\CakeStore.Services.Logger.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.Products\CakeStore.Services.Products.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.RabbitMq\CakeStore.Services.RabbitMq.csproj" />
+    <ProjectReference Include="..\..\..\Services\CakeStore.Services.Reviews\CakeStore.Services.Reviews.csproj" />
     <ProjectReference Include="..\..\..\Services\CakeStore.Services.Settings\CakeStore.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\CakeStore.Common\CakeStore.Common.csproj" />
     <ProjectReference Include="..\CakeStore.Api.Settings\CakeStore.Api.Settings.csproj" />

@@ -22,6 +22,7 @@ public static class IS4Configuration
             .AddUserManager<UserManager<User>>()
             .AddDefaultTokenProviders()
             ;
+        
 
         services
             .AddIdentityServer()

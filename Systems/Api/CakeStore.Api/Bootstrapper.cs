@@ -9,6 +9,8 @@ using CakeStore.Services.Products;
 using CakeStore.Services.RabbitMq;
 using CakeStore.Services.Actions;
 using CakeStore.Services.UserAccount;
+using CakeStore.Services.Categories;
+using CakeStore.Services.Reviews;
 
 public static class Bootstrapper
 {
@@ -22,9 +24,11 @@ public static class Bootstrapper
                 .AddDbSeeder()
                 .AddApiSpecialSettings()
                 .AddProductService()
+                .AddCategoryService()
                 .AddRabbitMq()
                 .AddActions()
-                .AddUserAccountService();
+                .AddUserAccountService()
+                .AddReviewService()
                 ;
 
         return service;

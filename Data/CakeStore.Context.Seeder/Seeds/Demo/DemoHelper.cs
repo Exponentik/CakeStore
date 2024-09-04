@@ -8,30 +8,30 @@ public class DemoHelper
     {
     //    new Product()
     //    {
-    //    //    Uid = Guid.NewGuid(),
-    //    //    Name = "Napoleon",
-    //    //    Description = "Krutoi tort",
+    //        Uid = Guid.NewGuid(),
+    //        Name = "Napoleon",
+    //        Description = "Krutoi tort",
 
-    //    //    Categories = new List<Category>()
-    //    //    {
-    //    //        new Category()
-    //    //        {
-    //    //            Title = "S kremom",
-    //    //        },
-    //    //        new Category()
-    //    //        {
-    //    //            Title = "Bomba",
-    //    //        }
-    //    //    },
-    //    //    User = new User()
-    //    //    {
-    //    //        Id = Guid.NewGuid(),
-    //    //        FullName = "Petya",
-    //    //        Email = "",
-    //    //        PasswordHash = "",
-    //    //        UserName = ""
+    //        Categories = new List<Category>()
+    //        {
+    //            new Category()
+    //            {
+    //                Title = "S kremom",
+    //            },
+    //            new Category()
+    //            {
+    //                Title = "Bomba",
+    //            }
+    //        },
+    //        User = new User()
+    //        {
+    //            Id = Guid.NewGuid(),
+    //            FullName = "Petya",
+    //            Email = "",
+    //            PasswordHash = "",
+    //            UserName = ""
 
-    //    //}
+    //    }
     //}
     };
         }

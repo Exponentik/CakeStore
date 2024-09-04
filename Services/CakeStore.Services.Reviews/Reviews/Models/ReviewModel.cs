@@ -3,18 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using CakeStore.Context.Entities;
 using CakeStore.Context;
 
-namespace CakeStore.Services.Products;
+namespace CakeStore.Services.Reviews;
 
-public class ProductModel
+public class ReviewModel
 {
     public Guid Id { get; set; }
 
+    public Guid ProductId { get; set; }
+
     public Guid UserId { get; set; }
 
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public string Comment { get; set; }
 
-    public IEnumerable<string> Categories { get; set; }
 }
 
 
@@ -22,15 +22,14 @@ public class ProductModelProfile : Profile
 {
     public ProductModelProfile()
     {
-        CreateMap<Product, ProductModel>()
+        CreateMap<Product, ReviewModel>()
             .BeforeMap<ProductModelActions>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.UserId, opt => opt.Ignore())
-            .ForMember(dest => dest.Categories, opt => opt.Ignore())
             ;
     }
 
-    public class ProductModelActions : IMappingAction<Product, ProductModel>
+    public class ProductModelActions : IMappingAction<Product, ReviewModel>
     {
         private readonly IDbContextFactory<MainDbContext> contextFactory;
 
@@ -39,7 +38,7 @@ public class ProductModelProfile : Profile
             this.contextFactory = contextFactory;
         }
 
-        public void Process(Product source, ProductModel destination, ResolutionContext context)
+        public void Process(Product source, ReviewModel destination, ResolutionContext context)
         {
             using var db = contextFactory.CreateDbContext();
 
@@ -49,7 +48,6 @@ public class ProductModelProfile : Profile
 
             destination.Id = product.Uid;
             destination.UserId = product.User.Id;
-            destination.Categories = product.Categories?.Select(x => x.Title);
         }
     }
 }

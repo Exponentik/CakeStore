@@ -16,6 +16,7 @@ public static class UsersContestConfiguration
         modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("user_role_claims");
         modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("user_logins");
         modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("user_claims");
+
         //modelBuilder.Entity<User>().HasMany(x => x.Orders).WithOne(x => x.User);
     }
 }

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\CakeStore.Context.Entities\CakeStore.Context.Entities.csproj" />
+    <ProjectReference Include="..\..\Data\CakeStore.Context\CakeStore.Context.csproj" />
+    <ProjectReference Include="..\CakeStore.Services.Actions\CakeStore.Services.Actions.csproj" />
+  </ItemGroup>
+
+</Project>

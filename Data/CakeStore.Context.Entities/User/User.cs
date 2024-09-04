@@ -10,6 +10,6 @@ public class User : IdentityUser<Guid>
     //public virtual ICollection<Review> Reviews { get; set; }
     //public virtual ICollection<Notification> Notifications { get; set; }
 
-    //public virtual ICollection<Product> Products { get; set; }
+    public virtual ICollection<Product>? Products { get; set; }
     public UserStatus Status { get; set; }
 }

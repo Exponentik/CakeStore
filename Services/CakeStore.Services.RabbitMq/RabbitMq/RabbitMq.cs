@@ -106,7 +106,7 @@ public class RabbitMq : IRabbitMq, IDisposable
     private void AddQueue(string queueName)
     {
         Connect();
-        channel.QueueDeclare(queueName, true, false, false, null);
+        //channel.QueueDeclare(queueName, true, false, false, null);
     }
 
     public async Task Subscribe<T>(string queueName, OnDataReceiveEvent<T> onReceive)
@@ -135,6 +135,6 @@ public class RabbitMq : IRabbitMq, IDisposable
 
     public async Task PushAsync<T>(string queueName, T data)
     {
-        await Publish(queueName, data);
+        //await Publish(queueName, data);
     }
 }

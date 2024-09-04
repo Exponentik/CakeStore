@@ -9,6 +9,8 @@ public interface IUserAccountService
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
+    Task<IEnumerable<UserAccountModel>> GetAll();
+    Task<UserAccountModel> GetById(Guid id);
     Task<UserAccountModel> Create(RegisterUserAccountModel model);
 
 

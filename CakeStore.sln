@@ -18,6 +18,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{33B7EF1A-53DA-4E27-ADBD-5ED436C5DE50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A9A58036-FF8C-4392-8F87-0E46AEE2384C}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\package-lock.json = Systems\Web\package-lock.json
+		Systems\Web\package.json = Systems\Web\package.json
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Api", "Systems\Api\CakeStore.Api\CakeStore.Api.csproj", "{DB271B0E-E556-4831-8711-00501FF3E47E}"
 EndProject
@@ -65,6 +69,109 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Identity", "Systems\Identity\CakeStore.Identity\CakeStore.Identity.csproj", "{FE6E4048-3C31-433E-8654-BA53E61B222B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.UserAccount", "Services\CakeStore.Services.UserAccount\CakeStore.Services.UserAccount.csproj", "{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CakeStore", "CakeStore", "{097D45AD-2CAE-460C-A60B-8FA923A8EF34}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\CakeStore\.gitignore = Systems\Web\CakeStore\.gitignore
+		Systems\Web\CakeStore\eslint.config.js = Systems\Web\CakeStore\eslint.config.js
+		Systems\Web\CakeStore\index.html = Systems\Web\CakeStore\index.html
+		Systems\Web\CakeStore\package-lock.json = Systems\Web\CakeStore\package-lock.json
+		Systems\Web\CakeStore\package.json = Systems\Web\CakeStore\package.json
+		Systems\Web\CakeStore\README.md = Systems\Web\CakeStore\README.md
+		Systems\Web\CakeStore\tailwind.config.js = Systems\Web\CakeStore\tailwind.config.js
+		Systems\Web\CakeStore\vite.config.js = Systems\Web\CakeStore\vite.config.js
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.Categories", "Services\CakeStore.Services.Categories\CakeStore.Services.Categories.csproj", "{7266CA20-2FD8-4FAE-B024-540C3ABDFB03}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeStore.Services.Reviews", "Services\CakeStore.Services.Reviews\CakeStore.Services.Reviews.csproj", "{C1E436CB-58BF-45BC-B24A-C776C4764C8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0CBF4491-4E19-4BC4-B412-B59862FBEFDA}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\App.css = Systems\Web\cake_store\src\App.css
+		Systems\Web\cake_store\src\App.js = Systems\Web\cake_store\src\App.js
+		Systems\Web\cake_store\src\index.css = Systems\Web\cake_store\src\index.css
+		Systems\Web\cake_store\src\index.js = Systems\Web\cake_store\src\index.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{7B1DA93C-8E1D-4CD0-AF30-CF2A82B488D0}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\public\favicon.ico = Systems\Web\cake_store\public\favicon.ico
+		Systems\Web\cake_store\public\index.html = Systems\Web\cake_store\public\index.html
+		Systems\Web\cake_store\public\logo192.png = Systems\Web\cake_store\public\logo192.png
+		Systems\Web\cake_store\public\logo512.png = Systems\Web\cake_store\public\logo512.png
+		Systems\Web\cake_store\public\manifest.json = Systems\Web\cake_store\public\manifest.json
+		Systems\Web\cake_store\public\robots.txt = Systems\Web\cake_store\public\robots.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{630A3632-6719-4EB6-9093-E007C2EA1845}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\components\AppRouter.jsx = Systems\Web\cake_store\src\components\AppRouter.jsx
+		Systems\Web\cake_store\src\components\ProductForm.jsx = Systems\Web\cake_store\src\components\ProductForm.jsx
+		Systems\Web\cake_store\src\components\ProductItem.jsx = Systems\Web\cake_store\src\components\ProductItem.jsx
+		Systems\Web\cake_store\src\components\ProductList.jsx = Systems\Web\cake_store\src\components\ProductList.jsx
+		Systems\Web\cake_store\src\components\ReviewForm.jsx = Systems\Web\cake_store\src\components\ReviewForm.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{754C41E1-0454-4AA7-888C-B8EA2837ED4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "context", "context", "{EA7489CC-416D-4CB0-882B-758A7B8EF003}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\context\index.js = Systems\Web\cake_store\src\context\index.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hooks", "hooks", "{01E60485-153E-4B56-B5F7-5C2AEA2831D6}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\hooks\useFetching.js = Systems\Web\cake_store\src\hooks\useFetching.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pages", "pages", "{1452C569-53EC-4F01-B2A0-0948BCDEB998}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\pages\AllProducts.jsx = Systems\Web\cake_store\src\pages\AllProducts.jsx
+		Systems\Web\cake_store\src\pages\Login.jsx = Systems\Web\cake_store\src\pages\Login.jsx
+		Systems\Web\cake_store\src\pages\ProductIdPage.jsx = Systems\Web\cake_store\src\pages\ProductIdPage.jsx
+		Systems\Web\cake_store\src\pages\Products.jsx = Systems\Web\cake_store\src\pages\Products.jsx
+		Systems\Web\cake_store\src\pages\Register.jsx = Systems\Web\cake_store\src\pages\Register.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "router", "router", "{305AA456-0329-42CE-8322-DC18B655F86A}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\router\routes.js = Systems\Web\cake_store\src\router\routes.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{6D406B64-7465-4E54-985E-E347B6F2BDCB}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\utils\pages.js = Systems\Web\cake_store\src\utils\pages.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "button", "button", "{2CD95C14-3E03-4E08-8824-EB8BAE6B6036}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\components\UI\button\MyButton.jsx = Systems\Web\cake_store\src\components\UI\button\MyButton.jsx
+		Systems\Web\cake_store\src\components\UI\button\MyButton.module.css = Systems\Web\cake_store\src\components\UI\button\MyButton.module.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NavBar", "NavBar", "{5711B64D-50D0-4BF4-9630-16970CCB6EF5}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\components\UI\NavBar\NavBar.jsx = Systems\Web\cake_store\src\components\UI\NavBar\NavBar.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "input", "input", "{3B4A6789-5A67-483F-9443-C3FD0266C6C4}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\components\UI\input\MyInput.jsx = Systems\Web\cake_store\src\components\UI\input\MyInput.jsx
+		Systems\Web\cake_store\src\components\UI\input\MyInput.module.css = Systems\Web\cake_store\src\components\UI\input\MyInput.module.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyModal", "MyModal", "{EE0F8151-FBA6-4085-9E48-86A90AF294FD}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\components\UI\MyModal\MyModal.jsx = Systems\Web\cake_store\src\components\UI\MyModal\MyModal.jsx
+		Systems\Web\cake_store\src\components\UI\MyModal\MyModal.module.css = Systems\Web\cake_store\src\components\UI\MyModal\MyModal.module.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loader", "Loader", "{D8A3356C-1DBA-4FB6-8168-D199544CC8BD}"
+	ProjectSection(SolutionItems) = preProject
+		Systems\Web\cake_store\src\components\UI\Loader\Loader.jsx = Systems\Web\cake_store\src\components\UI\Loader\Loader.jsx
+		Systems\Web\cake_store\src\components\UI\Loader\Loader.module.css = Systems\Web\cake_store\src\components\UI\Loader\Loader.module.css
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,6 +247,14 @@ Global
 		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7266CA20-2FD8-4FAE-B024-540C3ABDFB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7266CA20-2FD8-4FAE-B024-540C3ABDFB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7266CA20-2FD8-4FAE-B024-540C3ABDFB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7266CA20-2FD8-4FAE-B024-540C3ABDFB03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E436CB-58BF-45BC-B24A-C776C4764C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E436CB-58BF-45BC-B24A-C776C4764C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E436CB-58BF-45BC-B24A-C776C4764C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E436CB-58BF-45BC-B24A-C776C4764C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +282,23 @@ Global
 		{EE7A4AB8-2BFA-4881-B3EA-43AE6BD10AED} = {F3A58766-8824-4AAD-92B7-6CE40569C108}
 		{FE6E4048-3C31-433E-8654-BA53E61B222B} = {EE7A4AB8-2BFA-4881-B3EA-43AE6BD10AED}
 		{C2BE4F50-30BB-40EB-A5F7-3E3C3752A522} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
+		{097D45AD-2CAE-460C-A60B-8FA923A8EF34} = {A9A58036-FF8C-4392-8F87-0E46AEE2384C}
+		{7266CA20-2FD8-4FAE-B024-540C3ABDFB03} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
+		{C1E436CB-58BF-45BC-B24A-C776C4764C8B} = {48030DB2-2032-4D08-A628-4A2ECDCEAAD5}
+		{0CBF4491-4E19-4BC4-B412-B59862FBEFDA} = {097D45AD-2CAE-460C-A60B-8FA923A8EF34}
+		{7B1DA93C-8E1D-4CD0-AF30-CF2A82B488D0} = {097D45AD-2CAE-460C-A60B-8FA923A8EF34}
+		{630A3632-6719-4EB6-9093-E007C2EA1845} = {0CBF4491-4E19-4BC4-B412-B59862FBEFDA}
+		{754C41E1-0454-4AA7-888C-B8EA2837ED4D} = {630A3632-6719-4EB6-9093-E007C2EA1845}
+		{EA7489CC-416D-4CB0-882B-758A7B8EF003} = {0CBF4491-4E19-4BC4-B412-B59862FBEFDA}
+		{01E60485-153E-4B56-B5F7-5C2AEA2831D6} = {0CBF4491-4E19-4BC4-B412-B59862FBEFDA}
+		{1452C569-53EC-4F01-B2A0-0948BCDEB998} = {0CBF4491-4E19-4BC4-B412-B59862FBEFDA}
+		{305AA456-0329-42CE-8322-DC18B655F86A} = {0CBF4491-4E19-4BC4-B412-B59862FBEFDA}
+		{6D406B64-7465-4E54-985E-E347B6F2BDCB} = {0CBF4491-4E19-4BC4-B412-B59862FBEFDA}
+		{2CD95C14-3E03-4E08-8824-EB8BAE6B6036} = {754C41E1-0454-4AA7-888C-B8EA2837ED4D}
+		{5711B64D-50D0-4BF4-9630-16970CCB6EF5} = {754C41E1-0454-4AA7-888C-B8EA2837ED4D}
+		{3B4A6789-5A67-483F-9443-C3FD0266C6C4} = {754C41E1-0454-4AA7-888C-B8EA2837ED4D}
+		{EE0F8151-FBA6-4085-9E48-86A90AF294FD} = {754C41E1-0454-4AA7-888C-B8EA2837ED4D}
+		{D8A3356C-1DBA-4FB6-8168-D199544CC8BD} = {754C41E1-0454-4AA7-888C-B8EA2837ED4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDB49E4D-BB53-4314-BBEA-067ED7FE5D2E}

@@ -16,9 +16,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNet.Identity;
 
 
-namespace CakeStore.Services.Products;
+namespace CakeStore.Services.Reviews;
 
-public class ProductService : IProductService
+public class ReviewService : IReviewService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
     private readonly IMapper mapper;
@@ -28,7 +28,7 @@ public class ProductService : IProductService
     private readonly IHttpContextAccessor _httpContextAccessor;
 
 
-    public ProductService(IDbContextFactory<MainDbContext> dbContextFactory,IMapper mapper, IModelValidator<CreateModel> createModelValidator,
+    public ReviewService(IDbContextFactory<MainDbContext> dbContextFactory,IMapper mapper, IModelValidator<CreateModel> createModelValidator,
         IModelValidator<UpdateModel> updateModelValidator, IAction action, IHttpContextAccessor _httpContextAccessor/*, UserManager<IdentityUser> _userManager*/) 
     { 
         this.dbContextFactory = dbContextFactory;
@@ -39,86 +39,77 @@ public class ProductService : IProductService
         this._httpContextAccessor = _httpContextAccessor;
         //this._userManager = _userManager;
     }
-    public async Task<IEnumerable<ProductModel>> GetAll()
+    public async Task<IEnumerable<ReviewModel>> GetAll()
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var products = await context.Products
+        var reviews = await context.Reviews
 
-            .Include(x => x.User).Include(x=>x.Categories).ToListAsync();
+            .Include(x => x.User).Include(x=>x.Product).ToListAsync();
 
-        var result = products.Select(x => new ProductModel()
+        var result = reviews.Select(x => new ReviewModel()
         {
             Id = x.Uid,
             UserId = x.User.Id,
-            Name = x.Name,
-            Description = x.Description,
-            Categories = x.Categories?.Select(s=>s.Title)
+            ProductId = x.Product.Uid,
+            Comment = x.Comment,
         });
         return result;
     }
-    public async Task<ProductModel> GetById(Guid id)
+    public async Task<ReviewModel> GetById(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var product = await context.Products
+        var review = await context.Reviews
             //.Include(x => x.Reviews)
-            .Include(x => x.Categories)
+            .Include(x => x.Product)
             //.Include(x => x.Images)
             .Include(x => x.User)
             .FirstOrDefaultAsync(x => x.Uid == id);
 
 
-        var result = new ProductModel()
+        var result = new ReviewModel()
         {
-            Id = product.Uid,
-            UserId = product.User.Id,
-            Name = product.Name,
-            Description = product.Description,
-            Categories = product.Categories.Select(s => s.Title)
+            Id = review.Uid,
+            UserId = review.User.Id,
+            ProductId = review.Product.Uid,
+            Comment = review.Comment,
         };
         return result;
     }      
-    public async Task<ProductModel> Create(CreateModel model)
+    public async Task<ReviewModel> Create(CreateModel model)
     {
        // await createModelValidator.CheckAsync(model);
 
         using var context = await dbContextFactory.CreateDbContextAsync();
         ICollection<Category> categories = new Collection<Category>();
-        foreach (var category in model.Categories)
-        {
-            var c = await context.Categories.Where(x => x.Title == category).FirstOrDefaultAsync();
-            categories.Add(c);
-        }
+        
         var usGuid = _httpContextAccessor.HttpContext.User.Identity.GetUserId();
-        var product = new Product()
+        var review = new Review()
         {
-            Name = model.Name,
-            Description= model.Description,
-            Categories = categories,
-            User = context.Users.FirstOrDefault(x => x.Id == model.UserId)
+            Comment = model.Comment,
+            User = context.Users.FirstOrDefault(x => x.Id == model.UserId),
+            Product = context.Products.FirstOrDefault(x => x.Uid == model.ProductId)
 
         };
         
             //mapper.Map<Product>(model);
 
-        await context.Products.AddAsync(product);
+        await context.Reviews.AddAsync(review);
 
         await context.SaveChangesAsync();
 
-        await action.PublicateBook(new PublicateBookModel()
+        //await action.PublicateBook(new PublicateBookModel()
+        //{
+        //    Id = review.Id,
+        //    Title = review.Name,
+        //    Description = review.Description
+        //});
+        var result = new ReviewModel()
         {
-            Id = product.Id,
-            Title = product.Name,
-            Description = product.Description
-        });
-        var result = new ProductModel()
-        {
-            Id = product.Uid,
-            UserId = product.User.Id,
-            Name = product.Name,
-            Description = product.Description,
-            Categories = product.Categories?.Select(s => s.Title)
+            Id = review.Uid,
+            UserId = review.User.Id,
+            Comment = review.Comment,
         };
         return result;
     }
@@ -128,12 +119,11 @@ public class ProductService : IProductService
 
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var product = await context.Products.Where(x => x.Uid == id).FirstOrDefaultAsync();
+        var review = await context.Reviews.Where(x => x.Uid == id).FirstOrDefaultAsync();
 
-        product.Name = model.Name;
-        product.Description = model.Description;
+        review.Comment = model.Comment;
 
-        context.Products.Update(product);
+        context.Reviews.Update(review);
 
         await context.SaveChangesAsync();
 
@@ -142,12 +132,12 @@ public class ProductService : IProductService
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var product = await context.Products.Where(x => x.Uid == id).FirstOrDefaultAsync();
+        var review = await context.Reviews.Where(x => x.Uid == id).FirstOrDefaultAsync();
 
-        if (product == null)
+        if (review == null)
             throw new ProcessException($"Product (ID = {id}) not found.");
 
-        context.Products.Remove(product);
+        context.Reviews.Remove(review);
 
         await context.SaveChangesAsync();
     }

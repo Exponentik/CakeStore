@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CakeStore.Context.Entities\CakeStore.Context.Entities.csproj" />
     <ProjectReference Include="..\..\CakeStore.Context\CakeStore.Context.csproj" />
   </ItemGroup>
 

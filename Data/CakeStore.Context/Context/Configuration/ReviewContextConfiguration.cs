@@ -9,7 +9,7 @@ namespace CakeStore.Context.Context.Configuration
         {
             modelBuilder.Entity<Review>().ToTable("reviews");
             modelBuilder.Entity<Review>().Property(x => x.Comment).HasMaxLength(10000).IsRequired();
-            modelBuilder.Entity<Review>().HasOne(x => x.Product).WithMany(x => x.Reviews);
+            //modelBuilder.Entity<Review>().HasOne(x => x.Product).WithMany(x => x.Reviews);
         }
     }
 }

@@ -5,15 +5,15 @@ using CakeStore.Context;
 using CakeStore.Settings;
 using FluentValidation;
 
-namespace CakeStore.Services.Products;
+namespace CakeStore.Services.Reviews;
 
 public class CreateModel
 {
-    public Guid UserId { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public Guid ProductId { get; set; }
 
-    public ICollection<string> Categories { get; set; }
+    public Guid UserId { get; set; }
+    public string Comment { get; set; }
+
 }
 
 
@@ -33,7 +33,7 @@ public class CreateBookModelValidator : AbstractValidator<CreateModel>
         //        return found;
         //    }).WithMessage("Author not found");
 
-        RuleFor(x => x.Description)
-            .MaximumLength(1000).WithMessage("Maximum length is 1000");
+        RuleFor(x => x.Comment)
+            .MaximumLength(10000).WithMessage("Maximum length is 1000");
     }
 }

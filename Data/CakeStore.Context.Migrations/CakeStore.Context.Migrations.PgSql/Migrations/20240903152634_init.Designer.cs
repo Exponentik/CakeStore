@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CakeStore.Context.Migrations.PgSql.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20240820110732_init")]
+    [Migration("20240903152634_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -196,10 +196,15 @@ namespace CakeStore.Context.Migrations.PgSql.Migrations
                     b.Property<Guid>("Uid")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Uid")
                         .IsUnique();
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("products", (string)null);
                 });
@@ -217,21 +222,23 @@ namespace CakeStore.Context.Migrations.PgSql.Migrations
                         .HasMaxLength(10000)
                         .HasColumnType("character varying(10000)");
 
-                    b.Property<string>("ProductId")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("ProductId1")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("integer");
 
                     b.Property<Guid>("Uid")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId1");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("Uid")
                         .IsUnique();
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("reviews", (string)null);
                 });
@@ -488,13 +495,28 @@ namespace CakeStore.Context.Migrations.PgSql.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("CakeStore.Context.Entities.Product", b =>
+                {
+                    b.HasOne("CakeStore.Context.Entities.User", "User")
+                        .WithMany("Products")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CakeStore.Context.Entities.Review", b =>
                 {
                     b.HasOne("CakeStore.Context.Entities.Product", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId1");
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("CakeStore.Context.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>
@@ -575,6 +597,11 @@ namespace CakeStore.Context.Migrations.PgSql.Migrations
                     b.Navigation("OrderDetails");
 
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("CakeStore.Context.Entities.User", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

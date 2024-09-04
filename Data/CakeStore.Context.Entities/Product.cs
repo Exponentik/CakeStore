@@ -13,5 +13,5 @@ public class Product : BaseEntity
     public virtual ICollection<Like>? Likes { get; set; }
     public virtual ICollection<Review>? Reviews { get; set; }
 
-    //public virtual User User { get; set; }
+    public virtual User User { get; set; }
 }
