@@ -45,7 +45,7 @@ public class ProductService : IProductService
 
         var products = await context.Products
 
-            .Include(x => x.User).Include(x=>x.Categories).ToListAsync();
+            .Include(x => x.User).Include(x=>x.Categories).Include(x => x.Images).ToListAsync();
 
         var result = products.Select(x => new ProductModel()
         {
@@ -53,7 +53,8 @@ public class ProductService : IProductService
             UserId = x.User.Id,
             Name = x.Name,
             Description = x.Description,
-            Categories = x.Categories?.Select(s=>s.Title)
+            Categories = x.Categories?.Select(s=>s.Title),
+            Images = x.Images.Select(s => s),
         });
         return result;
     }
@@ -64,7 +65,7 @@ public class ProductService : IProductService
         var product = await context.Products
             //.Include(x => x.Reviews)
             .Include(x => x.Categories)
-            //.Include(x => x.Images)
+            .Include(x => x.Images)
             .Include(x => x.User)
             .FirstOrDefaultAsync(x => x.Uid == id);
 
@@ -75,51 +76,87 @@ public class ProductService : IProductService
             UserId = product.User.Id,
             Name = product.Name,
             Description = product.Description,
-            Categories = product.Categories.Select(s => s.Title)
+            Categories = product.Categories.Select(s => s.Title),
+            Images = product.Images.Select(s => s),
         };
         return result;
-    }      
+    }
     public async Task<ProductModel> Create(CreateModel model)
     {
-       // await createModelValidator.CheckAsync(model);
-
         using var context = await dbContextFactory.CreateDbContextAsync();
-        ICollection<Category> categories = new Collection<Category>();
-        foreach (var category in model.Categories)
+
+        // Получение категорий из базы данных
+        ICollection<Category> categories = new List<Category>();
+        ICollection<Image> images = new List<Image>();
+        foreach (var categoryTitle in model.Categories)
         {
-            var c = await context.Categories.Where(x => x.Title == category).FirstOrDefaultAsync();
-            categories.Add(c);
+            var category = await context.Categories
+                .Where(x => x.Title == categoryTitle)
+                .FirstOrDefaultAsync();
+
+            if (category != null)
+            {
+                categories.Add(category);
+            }
+            else
+            {
+                throw new Exception($"Категория '{categoryTitle}' не найдена.");
+            }
         }
-        var usGuid = _httpContextAccessor.HttpContext.User.Identity.GetUserId();
+
+        // Получение пользователя
+        var user = await context.Users.FirstOrDefaultAsync(x => x.Id == model.UserId);
+        if (user == null)
+        {
+            throw new Exception("Пользователь не найден.");
+        }
+
+        // Создание нового продукта
         var product = new Product()
         {
             Name = model.Name,
-            Description= model.Description,
+            Description = model.Description,
             Categories = categories,
-            User = context.Users.FirstOrDefault(x => x.Id == model.UserId)
-
+            User = user,
+            Images = new List<Image>()  // Инициализируем список изображений
         };
-        
-            //mapper.Map<Product>(model);
 
+        foreach (var img in model.Images)
+        {
+            byte[] fimg;
+            using (var memoryStream = new MemoryStream())
+            {
+                await img.CopyToAsync(memoryStream);
+                fimg =  memoryStream.ToArray();
+            }
+            var image = new Image()
+            {
+                ImageData = fimg,
+                Product = product
+
+            };
+
+            product.Images.Add(image);
+        }
+
+        // Обработка и добавление изображений
+
+
+        // Добавление продукта в контекст и сохранение изменений
         await context.Products.AddAsync(product);
-
         await context.SaveChangesAsync();
 
-        await action.PublicateBook(new PublicateBookModel()
-        {
-            Id = product.Id,
-            Title = product.Name,
-            Description = product.Description
-        });
+        // Формирование результата для возврата
         var result = new ProductModel()
         {
             Id = product.Uid,
             UserId = product.User.Id,
             Name = product.Name,
             Description = product.Description,
-            Categories = product.Categories?.Select(s => s.Title)
+            Categories = product.Categories.Select(s => s.Title),
+            Images = product.Images
         };
+
         return result;
     }
     public async Task Update(Guid id, UpdateModel model)
@@ -132,6 +169,7 @@ public class ProductService : IProductService
 
         product.Name = model.Name;
         product.Description = model.Description;
+
 
         context.Products.Update(product);
 

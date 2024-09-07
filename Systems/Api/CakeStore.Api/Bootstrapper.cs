@@ -11,6 +11,8 @@ using CakeStore.Services.Actions;
 using CakeStore.Services.UserAccount;
 using CakeStore.Services.Categories;
 using CakeStore.Services.Reviews;
+using CakeStore.Services.Likes;
+using CakeStore.Services.Images;
 
 public static class Bootstrapper
 {
@@ -29,6 +31,8 @@ public static class Bootstrapper
                 .AddActions()
                 .AddUserAccountService()
                 .AddReviewService()
+                .AddLikeService()
+                .AddImageService()
                 ;
 
         return service;

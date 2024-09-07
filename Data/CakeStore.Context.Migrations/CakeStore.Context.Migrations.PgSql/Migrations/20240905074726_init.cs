@@ -234,7 +234,6 @@ namespace CakeStore.Context.Migrations.PgSql.Migrations
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     UserId1 = table.Column<Guid>(type: "uuid", nullable: true),
                     ProductId = table.Column<int>(type: "integer", nullable: false),
-                    LikeDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Uid = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>

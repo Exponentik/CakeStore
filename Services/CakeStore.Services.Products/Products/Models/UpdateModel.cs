@@ -2,6 +2,7 @@
 using FluentValidation;
 using CakeStore.Settings;
 using CakeStore.Context.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace CakeStore.Services.Products;
 
@@ -9,6 +10,7 @@ public class UpdateModel
 {
     public string Name { get; set; }
     public string Description { get; set; }
+
 }
 
 public class UpdateModelProfile : Profile

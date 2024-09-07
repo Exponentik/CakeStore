@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using CakeStore.Context.Entities;
 using CakeStore.Context;
+using Microsoft.AspNetCore.Http;
 
 namespace CakeStore.Services.Products;
 
@@ -15,6 +16,9 @@ public class ProductModel
     public string Description { get; set; }
 
     public IEnumerable<string> Categories { get; set; }
+    public IEnumerable<Image> Images { get; set; }
+
+
 }
 
 
